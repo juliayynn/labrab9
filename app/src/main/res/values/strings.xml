@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">laba_9</string>
+    <string name="app_name">Movie to watch</string>
+    <string name="add_title">Add movie</string>
+    <string name="search_title">Search result</string>
+    <string name="title_film_name">Film Name</string>
+    <string name="title_film_year">Film Year</string>
+    <string name="film_poster">Film Poster</string>
+    <string name="clear_checked">Clear checked</string>
 </resources>
