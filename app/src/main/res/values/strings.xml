@@ -2,8 +2,11 @@
     <string name="app_name">Movie to watch</string>
     <string name="add_title">Add movie</string>
     <string name="search_title">Search result</string>
-    <string name="title_film_name">Film Name</string>
-    <string name="title_film_year">Film Year</string>
-    <string name="film_poster">Film Poster</string>
+    <string name="title_movie_name">Movie Name</string>
+    <string name="title_movie_year">Movie Year</string>
+    <string name="movie_poster">Movie Poster</string>
     <string name="clear_checked">Clear checked</string>
+    <string name="fab_add">Add</string>
+    <string name="search_button">Search button</string>
+    <string name="add_movie">Add movie</string>
 </resources>

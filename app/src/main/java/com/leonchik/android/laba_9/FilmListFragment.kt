@@ -24,16 +24,27 @@ class FilmListFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_film_list, container, false)
-        filmRecyclerView = view.findViewById(R.id.film_recycler_view)
-        filmRecyclerView.layoutManager = LinearLayoutManager(context)
-        updateUI()
+        this.filmRecyclerView = view.findViewById(R.id.film_recycler_view)
+        this.filmRecyclerView.layoutManager = LinearLayoutManager(context)
+
+        this.filmRecyclerView.adapter = adapter
         return view
     }
-    private fun updateUI() {
-        val crimes = filmListViewModel.films
-        adapter = FilmAdapter(crimes)
-        filmRecyclerView.adapter = adapter
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        filmListViewModel.filmListLiveData.observe(viewLifecycleOwner)
+        { films -> films?.let {
+                updateUI(films)
+            }
+        }
     }
+
+    private fun updateUI(films: List<Film>) {
+        adapter = FilmAdapter(films)
+        this.filmRecyclerView.adapter = adapter
+    }
+
     private inner class FilmHolder(view: View): RecyclerView.ViewHolder(view) {
         private lateinit var film: Film
         private val nameTextView: TextView = itemView.findViewById(R.id.film_name)
@@ -44,6 +55,7 @@ class FilmListFragment: Fragment() {
             yearTextView.text = this.film.date.toString()
         }
     }
+
     private inner class FilmAdapter(var films: List<Film>): RecyclerView.Adapter<FilmHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmHolder {
             val view =
@@ -58,6 +70,7 @@ class FilmListFragment: Fragment() {
             }
         }
     }
+
     companion object {
         fun newInstance(): FilmListFragment {
             return FilmListFragment()
