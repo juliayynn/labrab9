@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/empty_message"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFD5EA">
+    <ImageView
+        android:id="@+id/empty_poster"
+        android:layout_width="236dp"
+        android:layout_height="296dp"
+        android:layout_marginTop="144dp"
+        android:contentDescription="@string/movie_poster"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon_film_placeholder" />
+    <TextView
+        android:id="@+id/empty_text"
+        android:layout_width="304dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="208dp"
+        android:text="@string/film_list_empty"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/empty_poster"
+        android:textColor="#FF0099"
+        app:layout_constraintVertical_bias="0.084" />
+</androidx.constraintlayout.widget.ConstraintLayout>

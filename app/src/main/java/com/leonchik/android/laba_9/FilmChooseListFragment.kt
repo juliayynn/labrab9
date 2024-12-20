@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
-private const val TAG = "FilmChooseListFragment"
 class FilmChooseListFragment (titleText: String, yearText: String): Fragment() {
 
     private lateinit var filmChooseViewModel: FilmChooseViewModel

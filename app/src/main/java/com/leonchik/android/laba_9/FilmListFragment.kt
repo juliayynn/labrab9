@@ -1,11 +1,14 @@
 package com.leonchik.android.laba_9
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -42,16 +45,40 @@ class FilmListFragment: Fragment() {
         }
     }
 
+    @SuppressLint("InflateParams")
     private fun updateUI(films: List<Film>) {
+        val emptyView = layoutInflater.inflate(R.layout.list_is_empty, null)
+        val container = activity?.findViewById<ViewGroup>(R.id.fragment_container)
         adapter = FilmAdapter(films)
+
         this.filmRecyclerView.adapter = adapter
+
+        if (films.isNotEmpty()) {
+            if (container?.findViewById<ConstraintLayout>(R.id.empty_message) != null) {
+                container.removeView(container.findViewById<ConstraintLayout>(R.id.empty_message))
+            }
+        } else {
+            container?.addView(emptyView)
+        }
     }
 
     private inner class FilmHolder(view: View): RecyclerView.ViewHolder(view) {
+
         private lateinit var film: Film
+        private var filmRepository: FilmRepository = FilmRepository.get()
         private val nameTextView: TextView = itemView.findViewById(R.id.film_name)
         private val posterImageView: ImageView = itemView.findViewById(R.id.film_poster)
         private val yearTextView: TextView = itemView.findViewById(R.id.film_year)
+        private val watchedCheck: CheckBox = itemView.findViewById(R.id.check_ended)
+
+        init {
+            watchedCheck.setOnCheckedChangeListener { _, isChecked ->
+                if (film.watched != isChecked) {
+                    film.watched = isChecked
+                    filmRepository.updateFilm(film)
+                }
+            }
+        }
 
         fun bind(film: Film) {
             this.film = film

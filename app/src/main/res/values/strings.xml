@@ -1,13 +1,15 @@
 <resources>
-    <string name="app_name">Movie to watch</string>
-    <string name="add_title">Add movie</string>
-    <string name="search_title">Search result</string>
-    <string name="title_movie_name">Movie Name</string>
-    <string name="title_movie_year">Movie Year</string>
-    <string name="movie_poster">Movie Poster</string>
-    <string name="clear_checked">Clear checked</string>
-    <string name="fab_add">Add</string>
-    <string name="search_button">Search button</string>
-    <string name="add_movie">Add movie</string>
-    <string name="title_movie_genre">Movie genre</string>
+    <string name="app_name">Фильмы на посмотреть</string>
+    <string name="add_title">Добавить фильм</string>
+    <string name="search_title">Результаты поиска</string>
+    <string name="title_movie_name">Название</string>
+    <string name="title_movie_year">Год выпуска</string>
+    <string name="movie_poster">Постер фильма</string>
+    <string name="clear_checked">Удалить выделенное</string>
+    <string name="fab_add">Добавить</string>
+    <string name="search_button">Кнопка поиска</string>
+    <string name="add_movie">Добавить фильм</string>
+    <string name="title_movie_genre">Жанр</string>
+    <string name="no_movies_in_list">В списке нет фильмов</string>
+    <string name="film_list_empty">Список фильмов пуст. Нажмите кнопку снизу, чтоб наполнить его!</string>
 </resources>
