@@ -50,7 +50,7 @@
         tools:ignore="LabelFor">
     </EditText>
     <ImageView
-        android:id="@+id/photo_drawable"
+        android:id="@+id/add_poster"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

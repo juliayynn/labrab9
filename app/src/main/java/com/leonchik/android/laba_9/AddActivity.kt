@@ -6,7 +6,9 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.squareup.picasso.Picasso
 import java.time.LocalDate
 class AddActivity : AppCompatActivity() {
 
@@ -53,4 +55,12 @@ class AddActivity : AppCompatActivity() {
             finish()
         }
     }
+
+    private fun redrawPoster() {
+        Picasso.get()
+            .load(film.posterUrl)
+            .placeholder(R.drawable.icon_film_placeholder)
+            .into(findViewById<ImageView>(R.id.add_poster))
+    }
+
 }

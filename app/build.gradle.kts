@@ -38,6 +38,7 @@ android {
 
 dependencies {
 
+    implementation(libs.picasso)
     implementation(libs.retrofit2.converter.scalars)
     implementation(libs.retrofit)
     implementation(libs.androidx.recyclerview)

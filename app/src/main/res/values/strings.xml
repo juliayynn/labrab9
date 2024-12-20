@@ -9,4 +9,5 @@
     <string name="fab_add">Add</string>
     <string name="search_button">Search button</string>
     <string name="add_movie">Add movie</string>
+    <string name="title_movie_genre">Movie genre</string>
 </resources>

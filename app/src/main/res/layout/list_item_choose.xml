@@ -3,15 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="#FFAAD5"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="#FFAAD5" >
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp">
         <ImageView
-            android:id="@+id/film_poster"
+            android:id="@+id/choose_poster"
             android:layout_width="50dp"
             android:layout_height="75dp"
             android:layout_gravity="center"
@@ -23,27 +23,31 @@
             android:layout_width="0dp"
             android:layout_height="match_parent">
             <TextView
-                android:id="@+id/film_name"
+                android:id="@+id/choose_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 android:textColor="#FF0099"
-                android:text="@string/title_movie_name"/>
+                android:text="@string/title_movie_name" />
             <TextView
-                android:id="@+id/film_year"
+                android:id="@+id/choose_year"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
+                android:text="@string/title_movie_year"
+                android:textColor="#FF0099"/>
+            <TextView
+                android:id="@+id/choose_genre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:textColor="#FF0099"
-                android:text="@string/title_movie_year"/>
+                android:text="@string/title_movie_genre"/>
         </LinearLayout>
-        <CheckBox
-            android:id="@+id/check_ended"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_gravity="center" />
     </LinearLayout>
     <View
         android:layout_width="match_parent"
