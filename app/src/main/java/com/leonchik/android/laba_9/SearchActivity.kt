@@ -13,7 +13,10 @@ class SearchActivity : AppCompatActivity() {
         if (isFragmentContainerEmpty) {
             supportFragmentManager
                 .beginTransaction()
-                .add(R.id.fragment_container_search, FilmChooseListFragment.newInstance())
+                .add(R.id.fragment_container_search, FilmChooseListFragment.newInstance(
+                    intent.getStringExtra("TITLE").toString(),
+                    intent.getStringExtra("YEAR").toString()
+                ))
                 .commit()
         }
     }

@@ -60,10 +60,16 @@ class FilmListFragment: Fragment() {
         }
 
         fun bindImage() {
-            Picasso.get()
-                .load(film.posterUrl)
-                .placeholder(R.drawable.icon_film_placeholder)
-                .into(posterImageView)
+            if (film.posterUrl != "") {
+                Picasso.get()
+                    .load(film.posterUrl)
+                    .placeholder(R.drawable.icon_film_placeholder)
+                    .into(posterImageView)
+            }
+            else
+            {
+                posterImageView.setImageResource(R.drawable.icon_film_placeholder)
+            }
         }
 
     }

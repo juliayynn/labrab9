@@ -1,5 +1,7 @@
 package com.leonchik.android.laba_9
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,14 +15,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
 private const val TAG = "FilmChooseListFragment"
-class FilmChooseListFragment: Fragment() {
+class FilmChooseListFragment (titleText: String, yearText: String): Fragment() {
 
     private lateinit var filmChooseViewModel: FilmChooseViewModel
     private lateinit var filmRecyclerView: RecyclerView
 
+    private var title: String = titleText
+    private var year: String = yearText
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         filmChooseViewModel = ViewModelProvider(this)[FilmChooseViewModel::class.java]
+
+        filmChooseViewModel.searchFilms(title, year)
+
         retainInstance = true
     }
 
@@ -43,13 +51,17 @@ class FilmChooseListFragment: Fragment() {
         }
     }
 
-    private inner class FilmHolder(view: View): RecyclerView.ViewHolder(view) {
+    private inner class FilmHolder(view: View): RecyclerView.ViewHolder(view), View.OnClickListener {
 
         private lateinit var film: Film
         private val nameTextView: TextView = itemView.findViewById(R.id.choose_name)
         private val yearTextView: TextView = itemView.findViewById(R.id.choose_year)
         private val genreTextView: TextView = itemView.findViewById(R.id.choose_genre)
         private val posterImageView: ImageView = itemView.findViewById(R.id.choose_poster)
+
+        init {
+            itemView.setOnClickListener(this)
+        }
 
         fun bind(film: Film) {
             this.film = film
@@ -63,6 +75,14 @@ class FilmChooseListFragment: Fragment() {
                 .load(film.posterUrl)
                 .placeholder(R.drawable.icon_film_placeholder)
                 .into(posterImageView)
+        }
+
+        override fun onClick(v: View?) {
+            val returnIntent = Intent().apply{
+                putExtra("FILM", film)
+            }
+            activity?.setResult(Activity.RESULT_OK, returnIntent)
+            activity?.finish()
         }
 
     }
@@ -88,6 +108,6 @@ class FilmChooseListFragment: Fragment() {
 
 
     companion object {
-        fun newInstance() = FilmChooseListFragment()
+        fun newInstance(title: String, year: String) = FilmChooseListFragment(title, year)
     }
 }
