@@ -52,7 +52,7 @@ class FilmListFragment: Fragment() {
         fun bind(film: Film) {
             this.film = film
             nameTextView.text = this.film.title
-            yearTextView.text = this.film.date.toString()
+            yearTextView.text = this.film.year
         }
     }
 

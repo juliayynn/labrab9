@@ -38,6 +38,9 @@ android {
 
 dependencies {
 
+    implementation(libs.retrofit2.converter.scalars)
+    implementation(libs.retrofit)
+    implementation(libs.androidx.recyclerview)
     implementation(libs.gson)
     implementation(libs.converter.gson)
     implementation(libs.androidx.room.runtime)
